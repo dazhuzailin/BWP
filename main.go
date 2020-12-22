@@ -8,6 +8,7 @@ import (
 
 func main() {
 	fmt.Println("Hello World")
+	fmt.Println("你好")
 	beego.Run()
 }
 
