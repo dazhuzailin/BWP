@@ -1,4 +1,4 @@
-package entity
+package models
 
 //存储rpc-json规范的结构体
 type RpsJson struct {

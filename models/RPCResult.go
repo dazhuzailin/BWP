@@ -1,4 +1,4 @@
-package entity
+package models
 
 type RPCResult struct {
 	Code int        `json:"code"`

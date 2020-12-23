@@ -3,7 +3,7 @@
 package rpcUtils
 
 import (
-	"BWP/entity"
+	"BWP/models"
 	"encoding/json"
 	"github.com/astaxie/beego"
 	"io/ioutil"
@@ -23,7 +23,7 @@ import (
 func RPCToJSON(method string, params ...interface{}) string {
 	conf := beego.AppConfig
 
-	rpcjson := entity.RpsJson{
+	rpcjson := models.RpsJson{
 		Id:      time.Now().Unix(),
 		Rpcjson: conf.String("rpcjson"),
 		Method:  method,
@@ -39,7 +39,7 @@ func RPCToJSON(method string, params ...interface{}) string {
 //构建post请求
 //rpc_json为rpc_json规范的数据
 //返回rpc请求的结果
-func DoPost(rpc_json string) entity.RPCResult {
+func DoPost(rpc_json string) models.RPCResult {
 	client := &http.Client{}
 	conf := beego.AppConfig
 	rpcconnect := conf.String("rpcconnect")
@@ -73,8 +73,8 @@ func DoPost(rpc_json string) entity.RPCResult {
 	}
 
 	//将数据到入到结构体中
-	RPCResult := entity.RPCResult{}
-	Resultdata := entity.Resultdata{}
+	RPCResult := models.RPCResult{}
+	Resultdata := models.Resultdata{}
 	code := resp.StatusCode
 	if code == http.StatusOK {
 		RPCResult.Msg = "请求成功"

@@ -1,4 +1,4 @@
-package entity
+package models
 
 type Resultdata struct {
 	Result interface{} `json:"result"`
