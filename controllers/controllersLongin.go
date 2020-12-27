@@ -19,14 +19,14 @@ func (l *LonginControllers) Post() {
 
 	err := l.ParseForm(&user)
 	if err != nil {
-		l.Ctx.WriteString("1")
+		l.TplName = "ErrorPage.html"
 		return
 	}
 	fmt.Println(user.Name,user.Password)
-	l.Ctx.WriteString("2")
 	 _ , err =user.Queryuser()
 	if err != nil {
-		l.Ctx.WriteString("cw")
+		l.TplName = "ErrorPage.html"
+		return
 	}
-	l.Ctx.WriteString("dengluchenggong")
+	l.TplName = "home.html"
 }
